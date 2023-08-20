@@ -1,0 +1,228 @@
+/* Загрузка шрифта Open Sans с весом 800 из Google Fonts */
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:800);
+
+/* Основные стили для всего документа */
+body {
+  background: #ffffff; /* Задаем фоновый цвет страницы */
+  background-size: 0.2em 100%; /* Устанавливаем размер фонового изображения */
+  font: 14.5em/1 Open Sans, Impact; /* Задаем шрифт, размер и высоту строки текста */
+  text-transform: uppercase; /* Преобразуем текст в верхний регистр */
+  margin: 0; /* Убираем отступы на странице */
+}
+
+/* Стили для элементов SVG */
+svg {
+  margin-left: 8%; /* Задаем отступ слева для элемента SVG */
+  font-size: 100px;
+}
+
+/* Стили для анимации текста */
+.text {
+  fill: none;
+  stroke-width: 6;
+  stroke-linejoin: round;
+  stroke-dasharray: 70 330;
+  stroke-dashoffset: 0;
+  -webkit-animation: stroke 6s infinite linear;
+  animation: stroke 6s infinite linear;
+}
+
+/* Каждый пятый элемент текста будет иметь свой цвет */
+.text:nth-child(5n + 1) {
+  stroke: #f2385a;
+  -webkit-animation-delay: -1.2s;
+  animation-delay: -1.2s;
+}
+.text:nth-child(5n + 2) {
+  stroke: #f5a503;
+  -webkit-animation-delay: -2.4s;
+  animation-delay: -2.4s;
+}
+.text:nth-child(5n + 3) {
+  stroke: #72bd16;
+  -webkit-animation-delay: -3.6s;
+  animation-delay: -3.6s;
+}
+.text:nth-child(5n + 4) {
+  stroke: #56d9cd;
+  -webkit-animation-delay: -4.8s;
+  animation-delay: -4.8s;
+}
+.text:nth-child(5n + 5) {
+  stroke: #3aa1bf;
+  -webkit-animation-delay: -6s;
+  animation-delay: -6s;
+}
+
+/* Анимация для изменения пути текста */
+@-webkit-keyframes stroke {
+  100% {
+    stroke-dashoffset: -400;
+  }
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: -400;
+  }
+}
+
+/* Дополнительные стили для HTML и body */
+html,
+body {
+  height: 100%; /* Задаем высоту 100% для корректного отображения */
+}
+
+/* Стили для контейнера калькулятора */
+.calculator {
+  /* Оформление контейнера */
+  width: 100%;
+  max-width: 320px;
+  margin: 50px auto;
+  border: 2px solid #ccc;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  background-color: #f9f9f9;
+}
+
+/* Стили для отображения результата калькуляции */
+.display {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 15px;
+  font-size: 30px;
+  text-align: right;
+  margin-bottom: 20px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Стили для кнопок калькулятора */
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.number,
+.operator {
+  background-color: #e7164b;
+  border: 1px solid #0097a7;
+  padding: 30px;
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 2px 0 #0097a7;
+  transition: background-color 0.2s;
+  border-radius: 5px;
+}
+
+.operator {
+  background-color: #e91e63;
+  border: 1px solid #b6aeb1;
+  box-shadow: 0 2px 0 #ffffff;
+}
+
+/* Стили при наведении на кнопки */
+.operator:hover,
+.number:hover {
+  background-color: #0097a7;
+}
+
+/* Новые стили для тумблера-переключателя */
+.theme-toggle {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.toggle-checkbox {
+  display: none;
+}
+
+.toggle-label {
+  width: 40px;
+  height: 20px;
+  background-color: #000000;
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+}
+
+.toggle-label::before {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background-color: #fff;
+  border-radius: 50%;
+  top: 1px;
+  left: 1px;
+  transition: transform 0.2s;
+}
+
+.toggle-checkbox:checked + .toggle-label::before {
+  transform: translateX(20px);
+  background-color: #000000; /* Цвет кнопки для включенного режима */
+}
+
+/* Стили для темной темы */
+.dark-theme {
+  background-color: #000000;
+  color: #fff;
+}
+
+.dark-theme .calculator {
+  background-color: #000000;
+}
+
+.dark-theme .display {
+  background-color: #b81c1c;
+  color: #fff;
+}
+
+.dark-theme .number,
+.dark-theme .operator {
+  background-color: #000000;
+}
+
+.dark-theme .operator {
+  background-color: #f02f21;
+}
+
+.dark-theme .operator:hover,
+.dark-theme .number:hover {
+  background-color: #2495d6;
+}
+
+.dark-theme .toggle-label {
+  background-color: #f3f3f3;
+}
+
+.dark-theme .toggle-theme {
+  background-color: #1389ce;
+  box-shadow: 0 2px 0 #999;
+}
+
+/* Анимация мигания для операторов */
+.blink {
+  animation: blink 0.2s;
+}
+
+.operator {
+  background-color: #30d60f;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    background-color: #00bcd4;
+  }
+  50% {
+    background-color: #0097a7;
+  }
+}

@@ -8,12 +8,41 @@
     <!-- Устанавливаем параметры для масштабирования страницы на различных устройствах -->
     <title>Простой калькулятор</title>
     <!-- Устанавливаем заголовок страницы -->
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="./css/style.css" />
     <!-- Подключаем таблицу стилей из файла styles.css -->
     <script defer src="script.js"></script>
     <!-- Подключаем скрипт из файла script.js для обработки действий калькулятора -->
   </head>
   <body>
+
+      <!-- Начало тела документа -->
+      <svg class="svg" viewBox="0 0 1980 250">
+        <!-- Открываем тег <svg> для отображения векторной графики, устанавливаем класс "svg" и определенный размер viewBox -->
+  
+        <!-- Symbol -->
+        <symbol id="s-text">
+          <!-- Открываем тег <symbol> с идентификатором "s-text" для дальнейшего использования -->
+          <text text-anchor="middle" x="900" y="60%" dy=".30em">
+            <!-- Открываем тег <text> с определенными атрибутами для текста внутри -->
+            WebCalc Masterclass
+            <!-- Текст, который будет отображаться внутри элемента -->
+          </text>
+        </symbol>
+  
+        <!-- Duplicate symbols -->
+        <use xlink:href="#s-text" class="text"></use>
+        <!-- Используем ранее созданный символ "s-text" с классом "text" для отображения текста -->
+        <use xlink:href="#s-text" class="text"></use>
+        <!-- Дублируем символ для повторного отображения текста -->
+        <use xlink:href="#s-text" class="text"></use>
+        <!-- Еще одна копия символа -->
+        <use xlink:href="#s-text" class="text"></use>
+        <!-- И еще одна копия символа -->
+        <use xlink:href="#s-text" class="text"></use>
+        <!-- И последняя копия символа -->
+      </svg>
+      <!-- Закрываем тег <svg> -->
+
     <div class="calculator">
       <!-- Создаем контейнер для калькулятора с классом "calculator" -->
       <div class="display" id="display">0</div>
